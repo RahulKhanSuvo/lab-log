@@ -1,5 +1,6 @@
 import { RequestHandler } from "express";
 import { usagesServices } from "./usage.service";
+import { prisma } from "../../lib/prisma";
 
 const createUsageLog: RequestHandler = async (req, res) => {
     try {
@@ -14,8 +15,26 @@ const createUsageLog: RequestHandler = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "internal server error"
+            message: error || "internal server error"
         })
     }
 }
-export const usagesLogController = { createUsageLog }
+const getAllUsages: RequestHandler = async (req, res) => {
+    try {
+        const result = await prisma.usageLog.findMany({
+            include: { user: true, equipment: true }
+        })
+        res.status(201).json({
+            success: true,
+            message: "get all successfully",
+            result: result
+        })
+
+    } catch (error: any) {
+        res.status(500).json({
+            success: false,
+            message: error || "internal server error"
+        })
+    }
+}
+export const usagesLogController = { createUsageLog, getAllUsages }
