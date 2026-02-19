@@ -19,12 +19,43 @@ enum Role {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String   @db.VarChar(100)
-  email     String   @unique
+  id        String     @id @default(uuid())
+  name      String     @db.VarChar(100)
+  email     String     @unique
   password  String
-  role      Role     @default(STUDENT)
-  isActive  Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updateAt  DateTime @updatedAt
+  role      Role       @default(STUDENT)
+  isActive  Boolean    @default(true)
+  createdAt DateTime   @default(now())
+  updateAt  DateTime   @updatedAt
+  usersLogs UsersLog[]
+}
+
+enum EquipmentStatus {
+  AVAILABLE
+  IN_USE
+  MAINTAINERS
+}
+
+model Equipment {
+  id           String          @id @default(uuid())
+  name         String          @db.VarChar(100)
+  serialNumber String          @unique
+  status       EquipmentStatus @default(AVAILABLE)
+  location     String
+  metadata     Json?
+  createdAt    DateTime        @default(now())
+  updateAt     DateTime        @updatedAt
+  usersLogs    UsersLog[]
+}
+
+model UsersLog {
+  id          String    @id @default(uuid())
+  userId      String
+  equipmentId String
+  startTime   DateTime
+  endTime     DateTime
+  purpose     String
+  nots        String?
+  user        User      @relation(fields: [userId], references: [id])
+  equipment   Equipment @relation(fields: [equipmentId], references: [id])
 }
