@@ -107,7 +107,9 @@ export const UsersLogScalarFieldEnum = {
   startTime: 'startTime',
   endTime: 'endTime',
   purpose: 'purpose',
-  nots: 'nots'
+  nots: 'nots',
+  createdAt: 'createdAt',
+  updateAt: 'updateAt'
 } as const
 
 export type UsersLogScalarFieldEnum = (typeof UsersLogScalarFieldEnum)[keyof typeof UsersLogScalarFieldEnum]

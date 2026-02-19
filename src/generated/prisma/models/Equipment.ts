@@ -202,6 +202,7 @@ export type EquipmentWhereInput = {
   metadata?: Prisma.JsonNullableFilter<"Equipment">
   createdAt?: Prisma.DateTimeFilter<"Equipment"> | Date | string
   updateAt?: Prisma.DateTimeFilter<"Equipment"> | Date | string
+  usersLogs?: Prisma.UsersLogListRelationFilter
 }
 
 export type EquipmentOrderByWithRelationInput = {
@@ -213,6 +214,7 @@ export type EquipmentOrderByWithRelationInput = {
   metadata?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updateAt?: Prisma.SortOrder
+  usersLogs?: Prisma.UsersLogOrderByRelationAggregateInput
 }
 
 export type EquipmentWhereUniqueInput = Prisma.AtLeast<{
@@ -227,6 +229,7 @@ export type EquipmentWhereUniqueInput = Prisma.AtLeast<{
   metadata?: Prisma.JsonNullableFilter<"Equipment">
   createdAt?: Prisma.DateTimeFilter<"Equipment"> | Date | string
   updateAt?: Prisma.DateTimeFilter<"Equipment"> | Date | string
+  usersLogs?: Prisma.UsersLogListRelationFilter
 }, "id" | "serialNumber">
 
 export type EquipmentOrderByWithAggregationInput = {
@@ -266,6 +269,7 @@ export type EquipmentCreateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updateAt?: Date | string
+  usersLogs?: Prisma.UsersLogCreateNestedManyWithoutEquipmentInput
 }
 
 export type EquipmentUncheckedCreateInput = {
@@ -277,6 +281,7 @@ export type EquipmentUncheckedCreateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updateAt?: Date | string
+  usersLogs?: Prisma.UsersLogUncheckedCreateNestedManyWithoutEquipmentInput
 }
 
 export type EquipmentUpdateInput = {
@@ -288,6 +293,7 @@ export type EquipmentUpdateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  usersLogs?: Prisma.UsersLogUpdateManyWithoutEquipmentNestedInput
 }
 
 export type EquipmentUncheckedUpdateInput = {
@@ -299,6 +305,7 @@ export type EquipmentUncheckedUpdateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  usersLogs?: Prisma.UsersLogUncheckedUpdateManyWithoutEquipmentNestedInput
 }
 
 export type EquipmentCreateManyInput = {
@@ -365,10 +372,118 @@ export type EquipmentMinOrderByAggregateInput = {
   updateAt?: Prisma.SortOrder
 }
 
+export type EquipmentScalarRelationFilter = {
+  is?: Prisma.EquipmentWhereInput
+  isNot?: Prisma.EquipmentWhereInput
+}
+
 export type EnumEquipmentStatusFieldUpdateOperationsInput = {
   set?: $Enums.EquipmentStatus
 }
 
+export type EquipmentCreateNestedOneWithoutUsersLogsInput = {
+  create?: Prisma.XOR<Prisma.EquipmentCreateWithoutUsersLogsInput, Prisma.EquipmentUncheckedCreateWithoutUsersLogsInput>
+  connectOrCreate?: Prisma.EquipmentCreateOrConnectWithoutUsersLogsInput
+  connect?: Prisma.EquipmentWhereUniqueInput
+}
+
+export type EquipmentUpdateOneRequiredWithoutUsersLogsNestedInput = {
+  create?: Prisma.XOR<Prisma.EquipmentCreateWithoutUsersLogsInput, Prisma.EquipmentUncheckedCreateWithoutUsersLogsInput>
+  connectOrCreate?: Prisma.EquipmentCreateOrConnectWithoutUsersLogsInput
+  upsert?: Prisma.EquipmentUpsertWithoutUsersLogsInput
+  connect?: Prisma.EquipmentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EquipmentUpdateToOneWithWhereWithoutUsersLogsInput, Prisma.EquipmentUpdateWithoutUsersLogsInput>, Prisma.EquipmentUncheckedUpdateWithoutUsersLogsInput>
+}
+
+export type EquipmentCreateWithoutUsersLogsInput = {
+  id?: string
+  name: string
+  serialNumber: string
+  status?: $Enums.EquipmentStatus
+  location: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updateAt?: Date | string
+}
+
+export type EquipmentUncheckedCreateWithoutUsersLogsInput = {
+  id?: string
+  name: string
+  serialNumber: string
+  status?: $Enums.EquipmentStatus
+  location: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updateAt?: Date | string
+}
+
+export type EquipmentCreateOrConnectWithoutUsersLogsInput = {
+  where: Prisma.EquipmentWhereUniqueInput
+  create: Prisma.XOR<Prisma.EquipmentCreateWithoutUsersLogsInput, Prisma.EquipmentUncheckedCreateWithoutUsersLogsInput>
+}
+
+export type EquipmentUpsertWithoutUsersLogsInput = {
+  update: Prisma.XOR<Prisma.EquipmentUpdateWithoutUsersLogsInput, Prisma.EquipmentUncheckedUpdateWithoutUsersLogsInput>
+  create: Prisma.XOR<Prisma.EquipmentCreateWithoutUsersLogsInput, Prisma.EquipmentUncheckedCreateWithoutUsersLogsInput>
+  where?: Prisma.EquipmentWhereInput
+}
+
+export type EquipmentUpdateToOneWithWhereWithoutUsersLogsInput = {
+  where?: Prisma.EquipmentWhereInput
+  data: Prisma.XOR<Prisma.EquipmentUpdateWithoutUsersLogsInput, Prisma.EquipmentUncheckedUpdateWithoutUsersLogsInput>
+}
+
+export type EquipmentUpdateWithoutUsersLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  serialNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumEquipmentStatusFieldUpdateOperationsInput | $Enums.EquipmentStatus
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type EquipmentUncheckedUpdateWithoutUsersLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  serialNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumEquipmentStatusFieldUpdateOperationsInput | $Enums.EquipmentStatus
+  location?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type EquipmentCountOutputType
+ */
+
+export type EquipmentCountOutputType = {
+  usersLogs: number
+}
+
+export type EquipmentCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  usersLogs?: boolean | EquipmentCountOutputTypeCountUsersLogsArgs
+}
+
+/**
+ * EquipmentCountOutputType without action
+ */
+export type EquipmentCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EquipmentCountOutputType
+   */
+  select?: Prisma.EquipmentCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * EquipmentCountOutputType without action
+ */
+export type EquipmentCountOutputTypeCountUsersLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.UsersLogWhereInput
+}
 
 
 export type EquipmentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -380,6 +495,8 @@ export type EquipmentSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   metadata?: boolean
   createdAt?: boolean
   updateAt?: boolean
+  usersLogs?: boolean | Prisma.Equipment$usersLogsArgs<ExtArgs>
+  _count?: boolean | Prisma.EquipmentCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["equipment"]>
 
 export type EquipmentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -416,10 +533,18 @@ export type EquipmentSelectScalar = {
 }
 
 export type EquipmentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "serialNumber" | "status" | "location" | "metadata" | "createdAt" | "updateAt", ExtArgs["result"]["equipment"]>
+export type EquipmentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  usersLogs?: boolean | Prisma.Equipment$usersLogsArgs<ExtArgs>
+  _count?: boolean | Prisma.EquipmentCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type EquipmentIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type EquipmentIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $EquipmentPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Equipment"
-  objects: {}
+  objects: {
+    usersLogs: Prisma.$UsersLogPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
@@ -823,6 +948,7 @@ readonly fields: EquipmentFieldRefs;
  */
 export interface Prisma__EquipmentClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  usersLogs<T extends Prisma.Equipment$usersLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Equipment$usersLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UsersLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -877,6 +1003,10 @@ export type EquipmentFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   omit?: Prisma.EquipmentOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EquipmentInclude<ExtArgs> | null
+  /**
    * Filter, which Equipment to fetch.
    */
   where: Prisma.EquipmentWhereUniqueInput
@@ -895,6 +1025,10 @@ export type EquipmentFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensi
    */
   omit?: Prisma.EquipmentOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EquipmentInclude<ExtArgs> | null
+  /**
    * Filter, which Equipment to fetch.
    */
   where: Prisma.EquipmentWhereUniqueInput
@@ -912,6 +1046,10 @@ export type EquipmentFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Omit specific fields from the Equipment
    */
   omit?: Prisma.EquipmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EquipmentInclude<ExtArgs> | null
   /**
    * Filter, which Equipment to fetch.
    */
@@ -961,6 +1099,10 @@ export type EquipmentFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensio
    */
   omit?: Prisma.EquipmentOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EquipmentInclude<ExtArgs> | null
+  /**
    * Filter, which Equipment to fetch.
    */
   where?: Prisma.EquipmentWhereInput
@@ -1009,6 +1151,10 @@ export type EquipmentFindManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   omit?: Prisma.EquipmentOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EquipmentInclude<ExtArgs> | null
+  /**
    * Filter, which Equipment to fetch.
    */
   where?: Prisma.EquipmentWhereInput
@@ -1051,6 +1197,10 @@ export type EquipmentCreateArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the Equipment
    */
   omit?: Prisma.EquipmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EquipmentInclude<ExtArgs> | null
   /**
    * The data needed to create a Equipment.
    */
@@ -1099,6 +1249,10 @@ export type EquipmentUpdateArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the Equipment
    */
   omit?: Prisma.EquipmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EquipmentInclude<ExtArgs> | null
   /**
    * The data needed to update a Equipment.
    */
@@ -1166,6 +1320,10 @@ export type EquipmentUpsertArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.EquipmentOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EquipmentInclude<ExtArgs> | null
+  /**
    * The filter to search for the Equipment to update in case it exists.
    */
   where: Prisma.EquipmentWhereUniqueInput
@@ -1192,6 +1350,10 @@ export type EquipmentDeleteArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.EquipmentOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EquipmentInclude<ExtArgs> | null
+  /**
    * Filter which Equipment to delete.
    */
   where: Prisma.EquipmentWhereUniqueInput
@@ -1212,6 +1374,30 @@ export type EquipmentDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
 }
 
 /**
+ * Equipment.usersLogs
+ */
+export type Equipment$usersLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UsersLog
+   */
+  select?: Prisma.UsersLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the UsersLog
+   */
+  omit?: Prisma.UsersLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UsersLogInclude<ExtArgs> | null
+  where?: Prisma.UsersLogWhereInput
+  orderBy?: Prisma.UsersLogOrderByWithRelationInput | Prisma.UsersLogOrderByWithRelationInput[]
+  cursor?: Prisma.UsersLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.UsersLogScalarFieldEnum | Prisma.UsersLogScalarFieldEnum[]
+}
+
+/**
  * Equipment without action
  */
 export type EquipmentDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1223,4 +1409,8 @@ export type EquipmentDefaultArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the Equipment
    */
   omit?: Prisma.EquipmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EquipmentInclude<ExtArgs> | null
 }
