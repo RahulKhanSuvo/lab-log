@@ -27,7 +27,7 @@ model User {
   isActive  Boolean    @default(true)
   createdAt DateTime   @default(now())
   updateAt  DateTime   @updatedAt
-  usersLogs UsersLog[]
+  usersLogs UsageLog[]
 }
 
 enum EquipmentStatus {
@@ -45,10 +45,10 @@ model Equipment {
   metadata     Json?
   createdAt    DateTime        @default(now())
   updateAt     DateTime        @updatedAt
-  usersLogs    UsersLog[]
+  usersLogs    UsageLog[]
 }
 
-model UsersLog {
+model UsageLog {
   id          String    @id @default(uuid())
   userId      String
   equipmentId String

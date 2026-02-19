@@ -28,7 +28,7 @@ export type User = Prisma.UserModel
  */
 export type Equipment = Prisma.EquipmentModel
 /**
- * Model UsersLog
+ * Model UsageLog
  * 
  */
-export type UsersLog = Prisma.UsersLogModel
+export type UsageLog = Prisma.UsageLogModel

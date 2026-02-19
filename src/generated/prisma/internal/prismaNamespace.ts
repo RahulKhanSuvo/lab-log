@@ -386,7 +386,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   User: 'User',
   Equipment: 'Equipment',
-  UsersLog: 'UsersLog'
+  UsageLog: 'UsageLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -402,7 +402,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "equipment" | "usersLog"
+    modelProps: "user" | "equipment" | "usageLog"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -554,77 +554,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    UsersLog: {
-      payload: Prisma.$UsersLogPayload<ExtArgs>
-      fields: Prisma.UsersLogFieldRefs
+    UsageLog: {
+      payload: Prisma.$UsageLogPayload<ExtArgs>
+      fields: Prisma.UsageLogFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.UsersLogFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsersLogPayload> | null
+          args: Prisma.UsageLogFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageLogPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.UsersLogFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsersLogPayload>
+          args: Prisma.UsageLogFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageLogPayload>
         }
         findFirst: {
-          args: Prisma.UsersLogFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsersLogPayload> | null
+          args: Prisma.UsageLogFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageLogPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.UsersLogFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsersLogPayload>
+          args: Prisma.UsageLogFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageLogPayload>
         }
         findMany: {
-          args: Prisma.UsersLogFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsersLogPayload>[]
+          args: Prisma.UsageLogFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageLogPayload>[]
         }
         create: {
-          args: Prisma.UsersLogCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsersLogPayload>
+          args: Prisma.UsageLogCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageLogPayload>
         }
         createMany: {
-          args: Prisma.UsersLogCreateManyArgs<ExtArgs>
+          args: Prisma.UsageLogCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.UsersLogCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsersLogPayload>[]
+          args: Prisma.UsageLogCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageLogPayload>[]
         }
         delete: {
-          args: Prisma.UsersLogDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsersLogPayload>
+          args: Prisma.UsageLogDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageLogPayload>
         }
         update: {
-          args: Prisma.UsersLogUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsersLogPayload>
+          args: Prisma.UsageLogUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageLogPayload>
         }
         deleteMany: {
-          args: Prisma.UsersLogDeleteManyArgs<ExtArgs>
+          args: Prisma.UsageLogDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.UsersLogUpdateManyArgs<ExtArgs>
+          args: Prisma.UsageLogUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.UsersLogUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsersLogPayload>[]
+          args: Prisma.UsageLogUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageLogPayload>[]
         }
         upsert: {
-          args: Prisma.UsersLogUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsersLogPayload>
+          args: Prisma.UsageLogUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UsageLogPayload>
         }
         aggregate: {
-          args: Prisma.UsersLogAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateUsersLog>
+          args: Prisma.UsageLogAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUsageLog>
         }
         groupBy: {
-          args: Prisma.UsersLogGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UsersLogGroupByOutputType>[]
+          args: Prisma.UsageLogGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UsageLogGroupByOutputType>[]
         }
         count: {
-          args: Prisma.UsersLogCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UsersLogCountAggregateOutputType> | number
+          args: Prisma.UsageLogCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UsageLogCountAggregateOutputType> | number
         }
       }
     }
@@ -695,7 +695,7 @@ export const EquipmentScalarFieldEnum = {
 export type EquipmentScalarFieldEnum = (typeof EquipmentScalarFieldEnum)[keyof typeof EquipmentScalarFieldEnum]
 
 
-export const UsersLogScalarFieldEnum = {
+export const UsageLogScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   equipmentId: 'equipmentId',
@@ -707,7 +707,7 @@ export const UsersLogScalarFieldEnum = {
   updateAt: 'updateAt'
 } as const
 
-export type UsersLogScalarFieldEnum = (typeof UsersLogScalarFieldEnum)[keyof typeof UsersLogScalarFieldEnum]
+export type UsageLogScalarFieldEnum = (typeof UsageLogScalarFieldEnum)[keyof typeof UsageLogScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -944,7 +944,7 @@ export type PrismaClientOptions = ({
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   equipment?: Prisma.EquipmentOmit
-  usersLog?: Prisma.UsersLogOmit
+  usageLog?: Prisma.UsageLogOmit
 }
 
 /* Types for Logging */

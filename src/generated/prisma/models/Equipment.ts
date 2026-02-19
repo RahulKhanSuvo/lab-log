@@ -202,7 +202,7 @@ export type EquipmentWhereInput = {
   metadata?: Prisma.JsonNullableFilter<"Equipment">
   createdAt?: Prisma.DateTimeFilter<"Equipment"> | Date | string
   updateAt?: Prisma.DateTimeFilter<"Equipment"> | Date | string
-  usersLogs?: Prisma.UsersLogListRelationFilter
+  usersLogs?: Prisma.UsageLogListRelationFilter
 }
 
 export type EquipmentOrderByWithRelationInput = {
@@ -214,7 +214,7 @@ export type EquipmentOrderByWithRelationInput = {
   metadata?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updateAt?: Prisma.SortOrder
-  usersLogs?: Prisma.UsersLogOrderByRelationAggregateInput
+  usersLogs?: Prisma.UsageLogOrderByRelationAggregateInput
 }
 
 export type EquipmentWhereUniqueInput = Prisma.AtLeast<{
@@ -229,7 +229,7 @@ export type EquipmentWhereUniqueInput = Prisma.AtLeast<{
   metadata?: Prisma.JsonNullableFilter<"Equipment">
   createdAt?: Prisma.DateTimeFilter<"Equipment"> | Date | string
   updateAt?: Prisma.DateTimeFilter<"Equipment"> | Date | string
-  usersLogs?: Prisma.UsersLogListRelationFilter
+  usersLogs?: Prisma.UsageLogListRelationFilter
 }, "id" | "serialNumber">
 
 export type EquipmentOrderByWithAggregationInput = {
@@ -269,7 +269,7 @@ export type EquipmentCreateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updateAt?: Date | string
-  usersLogs?: Prisma.UsersLogCreateNestedManyWithoutEquipmentInput
+  usersLogs?: Prisma.UsageLogCreateNestedManyWithoutEquipmentInput
 }
 
 export type EquipmentUncheckedCreateInput = {
@@ -281,7 +281,7 @@ export type EquipmentUncheckedCreateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updateAt?: Date | string
-  usersLogs?: Prisma.UsersLogUncheckedCreateNestedManyWithoutEquipmentInput
+  usersLogs?: Prisma.UsageLogUncheckedCreateNestedManyWithoutEquipmentInput
 }
 
 export type EquipmentUpdateInput = {
@@ -293,7 +293,7 @@ export type EquipmentUpdateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  usersLogs?: Prisma.UsersLogUpdateManyWithoutEquipmentNestedInput
+  usersLogs?: Prisma.UsageLogUpdateManyWithoutEquipmentNestedInput
 }
 
 export type EquipmentUncheckedUpdateInput = {
@@ -305,7 +305,7 @@ export type EquipmentUncheckedUpdateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updateAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  usersLogs?: Prisma.UsersLogUncheckedUpdateManyWithoutEquipmentNestedInput
+  usersLogs?: Prisma.UsageLogUncheckedUpdateManyWithoutEquipmentNestedInput
 }
 
 export type EquipmentCreateManyInput = {
@@ -482,7 +482,7 @@ export type EquipmentCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Ex
  * EquipmentCountOutputType without action
  */
 export type EquipmentCountOutputTypeCountUsersLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.UsersLogWhereInput
+  where?: Prisma.UsageLogWhereInput
 }
 
 
@@ -543,7 +543,7 @@ export type EquipmentIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
 export type $EquipmentPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Equipment"
   objects: {
-    usersLogs: Prisma.$UsersLogPayload<ExtArgs>[]
+    usersLogs: Prisma.$UsageLogPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -948,7 +948,7 @@ readonly fields: EquipmentFieldRefs;
  */
 export interface Prisma__EquipmentClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  usersLogs<T extends Prisma.Equipment$usersLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Equipment$usersLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UsersLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  usersLogs<T extends Prisma.Equipment$usersLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Equipment$usersLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UsageLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1378,23 +1378,23 @@ export type EquipmentDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
  */
 export type Equipment$usersLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the UsersLog
+   * Select specific fields to fetch from the UsageLog
    */
-  select?: Prisma.UsersLogSelect<ExtArgs> | null
+  select?: Prisma.UsageLogSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the UsersLog
+   * Omit specific fields from the UsageLog
    */
-  omit?: Prisma.UsersLogOmit<ExtArgs> | null
+  omit?: Prisma.UsageLogOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.UsersLogInclude<ExtArgs> | null
-  where?: Prisma.UsersLogWhereInput
-  orderBy?: Prisma.UsersLogOrderByWithRelationInput | Prisma.UsersLogOrderByWithRelationInput[]
-  cursor?: Prisma.UsersLogWhereUniqueInput
+  include?: Prisma.UsageLogInclude<ExtArgs> | null
+  where?: Prisma.UsageLogWhereInput
+  orderBy?: Prisma.UsageLogOrderByWithRelationInput | Prisma.UsageLogOrderByWithRelationInput[]
+  cursor?: Prisma.UsageLogWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.UsersLogScalarFieldEnum | Prisma.UsersLogScalarFieldEnum[]
+  distinct?: Prisma.UsageLogScalarFieldEnum | Prisma.UsageLogScalarFieldEnum[]
 }
 
 /**
